@@ -26,9 +26,10 @@ namespace ConsoleApp3
 
             //2
 
-            var lePlusDeLivre = ListeAuteurs.Select(a => ListeLivres.Where(l => l.Auteur == a)).OrderByDescending(l => l.Count()).First() ;
+            //var lePlusDeLivre = ListeAuteurs.Select(a => ListeLivres.Where(l => l.Auteur == a)).OrderByDescending(l => l.Count()).First() ;
+            var lePlusDeLivre = ListeAuteurs.OrderByDescending(a => ListeLivres.Count(l => l.Auteur == a)).First();
 
-            Console.WriteLine(lePlusDeLivre.First().Auteur.Nom);
+            Console.WriteLine($"L'auteur ayant écrit le plus de livres {lePlusDeLivre.Nom}");
 
             //3
 
